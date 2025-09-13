@@ -1,0 +1,37 @@
+h1 {
+    font-family: "Helvetica", Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1b3f63;
+}
+
+body {
+    font-family: Eurostile, sans-serif;
+}
+
+h2 {
+    color: rgb(185, 91, 91);
+}
+
+.post-title {
+    color: #333;
+    font-family: sans-serif;
+}
+
+h1#title {
+    color: black;
+}
+
+#profile {
+    height: 200px;
+    width: auto;
+    padding: 20px;
+    border: 20px solid #ccc;
+    border-style: ridge;
+    margin: 20px;
+    margin-left: 0px;
+    border-radius: 10px;
+}
