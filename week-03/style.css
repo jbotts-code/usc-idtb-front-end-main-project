@@ -1,0 +1,299 @@
+/* Blade Runner 2049 Aesthetic */
+/* Color Palette: Dark, gritty, neon accents */
+/* Font: A bit futuristic and clean */
+
+/* Custom Properties */
+:root {
+    --color-dark: #000;
+    --color-text: #ddd;
+    --color-neon-blue: #00e0ff;
+    --color-neon-pink: #ff0099;
+    --color-accent: #2e2e2e;
+    --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    /* This makes fonts look cleaner on Mac */
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -99;
+}
+
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
+    padding: 8px;
+    z-index: 99;
+    left: 0;
+}
+
+/* Header and Navigation */
+.site-header {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--color-accent);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--color-neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--color-neon-pink);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-neon-blue);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.menu a:hover,
+.menu a:focus {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 8px var(--color-neon-blue);
+}
+
+.menu a[aria-current="page"] {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 8px var(--color-neon-pink);
+}
+
+/* Main Layout (Flexbox) */
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .layout {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+.sidebar {
+    background-color: var(--color-accent);
+    padding: 2rem;
+    border: 1px solid var(--color-dark);
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar h2,
+.sidebar h3 {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-neon-blue);
+}
+
+.sidebar ul,
+.sidebar ol {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+.avatar {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid var(--color-neon-pink);
+    box-shadow: 0 0 10px var(--color-neon-pink);
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.content h2 {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-neon-blue);
+    border-bottom: 1px solid var(--color-neon-blue);
+    padding-bottom: 0.5rem;
+}
+
+/* Project Cards */
+.projects {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.project-body {
+    padding: 1rem;
+}
+
+.project-body h3 {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 5px var(--color-neon-pink);
+}
+
+/* Buttons and Links */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--color-neon-blue);
+    color: var(--color-neon-blue);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
+}
+
+.btn-secondary {
+    border: 1px solid var(--color-neon-pink);
+    color: var(--color-neon-pink);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--color-neon-pink);
+    color: var(--color-dark);
+}
+
+a {
+    color: var(--color-neon-pink);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-neon-blue);
+    text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 2px solid var(--color-accent);
+}
+
+/* Responsive Menu */
+@media (max-width: 767px) {
+    .nav {
+        display: block;
+    }
+
+    .nav-toggle {
+        display: block;
+        z-index: 10;
+        position: relative;
+    }
+
+    .menu {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        padding-top: 5rem;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu.open {
+        right: 0;
+    }
+
+    .menu li {
+        margin: 1rem 2rem;
+    }
+}
+
+/* Placeholder for images */
+/* You will replace these with your actual image paths */
+img[alt="Project 1 placeholder"] {
+    /* Style for your project images */
+    /* You can put a placeholder background here if you don't have images yet */
+    background-color: #333;
+}
+img[alt="Project 2 placeholder"] {
+    background-color: #333;
+}

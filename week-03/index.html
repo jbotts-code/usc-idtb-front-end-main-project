@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>John Botts — Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <h1 class="logo">John Botts</h1>
+        <nav class="nav" aria-label="Primary">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+            <ul id="menu" class="menu">
+                <li><a href="./index.html" aria-current="page">Home</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main" class="layout">
+        <aside class="sidebar">
+            <img src="images/USC-PHOTO-PNG.png" id="profile" class="avatar" alt="Portrait of John Botts">
+            <h2>About</h2>
+            <p>Master’s student at USC IDBT. Undergrad in Sustainability, Sociology, and Environmental Science.</p>
+            <h3>Skills</h3>
+            <ul>
+                <li>Programming/Tools: Adobe Suite, Microsoft, SPSS, CAD</li>
+                <li>Computer-Aided Design: Dimension, SketchUp</li>
+                <li>Technical apparel design</li>
+                <li>Analysis • Research • Strategy</li>
+                <li>Sustainability reporting</li>
+            </ul>
+            <h3>Hobbies</h3>
+            <ol>
+                <li>Gaming</li>
+                <li>Sports</li>
+                <li>Traveling</li>
+                <li>Reading</li>
+            </ol>
+        </aside>
+        <section class="content">
+            <h2>Hello</h2>
+            <p>My name is John. I’ve worked in product development and market research for the last 5–8 years.</p>
+            <p>I’ve led visual design and both <strong>qualitative</strong> and <strong>quantitative</strong> research. Earlier in my career I taught math and sports.</p>
+            <p>I mainly communicate and network on <a href="https://linkedin.com/in/john-botts-772b45244" target="_blank" rel="noopener">LinkedIn</a>.</p>
+            <div class="cta-row">
+                <a class="btn" href="./projects.html">View Projects →</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
+        <small>© <span id="year"></span> John Botts</small>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('menu');
+        toggle.addEventListener('click', () => {
+            const open = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!open));
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — John Botts</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <h1 class="logo">Projects</h1>
+        <nav class="nav" aria-label="Primary">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+            <ul id="menu" class="menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./projects.html" aria-current="page">Projects</a></li>
+                <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main" class="layout">
+        <section class="content">
+            <h2>Selected Work</h2>
+            <div class="projects">
+                <article class="project-card">
+                    <img src="images/clothes.jpg" alt="Project 1 placeholder">
+                    <div class="project-body">
+                        <h3>clothing designs</h3>
+                        <p>Interactive dashboard aggregating survey data (SPSS) into actionable insights for product teams.</p>
+                        <a class="btn btn-secondary" href="images/IMG_1220.png">Details</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/3D.png" alt="Project 2 placeholder">
+                    <div class="project-body">
+                        <h3>product designs</h3>
+                        <p>Interactive designs that communicate spacial and visuals.</p>
+                        <a class="btn btn-secondary" href="images/SACHS ROCKET DESIGN.jpg">Details</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <small>© <span id="year"></span> John Botts</small>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('menu');
+        toggle.addEventListener('click', () => {
+            const open = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!open));
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
