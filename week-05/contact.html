@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — John Botts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">John Botts</h1>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./contact.html" aria-current="page">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="layout">
+    <section class="content">
+      <h2>Contact Me</h2>
+      <p>I’d love to connect! You can text or email me using the details below:</p>
+
+      <div class="contact-info">
+        <p>📱 <strong>Text:</strong> <a href="sms:+18182355187">818-235-5187</a></p>
+        <p>📧 <strong>Email:</strong> <a href="mailto:botts.jonathon@gmail.com">botts.jonathon@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
+    <small>© <span id="year"></span> John Botts</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
