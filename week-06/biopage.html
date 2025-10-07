@@ -1,61 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathon Botts - Personal Bio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jonathon Botts — Bio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
-    <div class="logo">Jonathon Botts</div>
-    <nav>
-        <ul class="menu">
-            <li><a href="#bio">Bio</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <!-- HEADER -->
+  <header class="site-header">
+    <h1 class="logo">Jonathon Botts</h1>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="./bio.html" aria-current="page">Bio</a></li>
+        <li><a href="./work.html">Work</a></li>
+        <li><a href="./education.html">Education</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<main class="layout">
+  <!-- MAIN -->
+  <main id="main" class="layout">
     <aside class="sidebar">
-        <img src="avatar.jpg" alt="Jonathon Botts" class="avatar">
-        <h2>Skills & Interests</h2>
-        <ul>
-            <li>Design & Product Development</li>
-            <li>Sustainability & Circular Design</li>
-            <li>Business Management</li>
-            <li>Sociology & Consumer Research</li>
-            <li>Machine Learning & Web/App Design</li>
-        </ul>
-        <h3>Connect</h3>
-        <ul>
-            <li><a href="mailto:jonathon@example.com" class="btn-secondary">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/jonathonbotts" class="btn-secondary">LinkedIn</a></li>
-        </ul>
+      <img src="avatar.jpg" alt="Jonathon Botts" class="avatar">
+      <h2>Skills & Interests</h2>
+      <ul>
+        <li>Design & Product Development</li>
+        <li>Sustainability & Circular Design</li>
+        <li>Business Management</li>
+        <li>Sociology & Consumer Research</li>
+        <li>Machine Learning & Web/App Design</li>
+      </ul>
+
+      <h3>Connect</h3>
+      <ul>
+        <li><a href="mailto:jonathon@example.com" class="btn-secondary">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathonbotts" class="btn-secondary">LinkedIn</a></li>
+      </ul>
     </aside>
 
     <section class="content">
-        <h2 id="bio">About Me</h2>
-        <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business management and sociology to achieve a clean system of design making. Circular design has been a major role in my career in the creative industry, while also identifying consumerism more effectively to initiate customer bases more effectively.</p>
-        <p>My work background focuses on product design within Apparel and home decor to achieve product making at a high level. Scientific research is applied to analyze waste management concerns and tackle supply chain challenges through a sustainable framework. Other research I've developed have been for customer market research to strengthen marketing strategies by applying sociological perspectives and methods.</p>
-        
-        <h2 id="education">Education</h2>
-        <p>I carry bachelor's degrees in sustainability, sociology, and a minor in natural resources from Oregon State University. The purpose of my education is to better understand the relationship between climate science, human behavioral science, and design, because they share a similar foundation. I am also currently pursuing a master's degree at the University of Southern California in integrated design, tech, and business, covering physical design, business, and computer engineering.</p>
-        
-        <h2 id="work">Work</h2>
-        <p>This degree focuses on construction that teaches skills to create functional products, and highlights marketing and branding tools to prepare me to shape my own entrepreneurial goals and apply machine learning towards web and app development for further design communication.</p>
-        
-        <a href="#contact" class="btn">Get in Touch</a>
+      <h2 id="bio">About Me</h2>
+      <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business management, and sociology to achieve a clean system of design making. Circular design has been a major role in my career in the creative industry, while also identifying consumerism more effectively to initiate customer bases more efficiently.</p>
+      <p>My work background focuses on product design within apparel and home decor to achieve product making at a high level. Scientific research is applied to analyze waste management concerns and tackle supply chain challenges through a sustainable framework. Other research I've developed has been for customer market research to strengthen marketing strategies by applying sociological perspectives and methods.</p>
+
+      <h2 id="education">Education</h2>
+      <p>I carry bachelor's degrees in sustainability, sociology, and a minor in natural resources from Oregon State University. The purpose of my education is to better understand the relationship between climate science, human behavioral science, and design, because they share a similar foundation. I am also currently pursuing a master's degree at the University of Southern California in Integrated Design, Tech, and Business, covering physical design, business, and computer engineering.</p>
+
+      <h2 id="work">Work</h2>
+      <p>This degree focuses on construction that teaches skills to create functional products, and highlights marketing and branding tools to prepare me to shape my own entrepreneurial goals and apply machine learning towards web and app development for further design communication.</p>
+
+      <div class="cta-row">
+        <a href="./contact.html" class="btn">Get in Touch →</a>
+      </div>
     </section>
-</main>
+  </main>
 
-<footer class="site-footer">
-    &copy; 2025 Jonathon Botts. All rights reserved.
-</footer>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
+    <small>© <span id="year"></span> Jonathon Botts</small>
+  </footer>
 
+  <!-- Scripts -->
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
