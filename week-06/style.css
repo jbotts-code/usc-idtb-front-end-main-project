@@ -1,0 +1,161 @@
+/* ====== Variables ====== */
+:root {
+    --color-dark: #000;
+    --color-text: #ddd;
+    --color-neon-blue: #00e0ff;
+    --color-neon-pink: #ff0099;
+    --color-accent: #2e2e2e;
+    --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ====== Global Styles ====== */
+body {
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    font-family: var(--font-family-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-neon-pink);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+a:hover {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 10px var(--color-neon-blue);
+}
+a:active {
+    color: var(--color-neon-pink);
+    transform: scale(0.98);
+}
+
+/* ====== Header ====== */
+header {
+    background: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(30,30,30,0.9));
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+}
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 10px var(--color-neon-pink);
+}
+
+/* ====== Main Layout ====== */
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+/* ====== Bio Section ====== */
+.bio {
+    background: linear-gradient(145deg, rgba(30,30,30,0.9), rgba(0,0,0,0.8));
+    padding: 2rem;
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+.bio h2 {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 8px var(--color-neon-blue);
+    border-bottom: 1px solid var(--color-neon-blue);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.bio p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* ====== Buttons ====== */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-neon-blue);
+    border-radius: 6px;
+    color: var(--color-neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(30,30,30,0.8));
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
+    box-shadow: 0 5px 20px var(--color-neon-blue);
+}
+
+.btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 10px var(--color-neon-blue);
+}
+
+/* ====== Navigation Menu ====== */
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu .dropdown {
+    display: none;
+    position: absolute;
+    background: var(--color-accent);
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+.menu li:hover .dropdown,
+.menu li:focus-within .dropdown {
+    display: block;
+}
+
+.menu .dropdown li a {
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.menu .dropdown li a:hover,
+.menu .dropdown li a:focus {
+    background: var(--color-neon-blue);
+    color: var(--color-dark);
+}
+
+/* ====== Responsive ====== */
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+    }
+    .bio {
+        flex: 1;
+    }
+}

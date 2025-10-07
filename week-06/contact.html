@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — John Botts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">John Botts</h1>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./contact.html" aria-current="page">Contact</a></li>
+          <li><a href="./biopage.html" aria-current="page">Bio</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="layout">
+    <section class="content">
+      <h2>Contact Me</h2>
+      <p>I’d love to connect! You can text or email me using the details below:</p>
+
+  <div class="contact-info">
+  <p><strong>Text:</strong> <a href="tel:8182355187">818-235-5187</a></p>
+  <p><strong>Email:</strong> <a href="mailto:botts.jonathan@gmail.com">botts.jonathan@gmail.com</a></p>
+</div>
+
+<h2>Send Me a Message</h2>
+<p>Or use the form below to get in touch:</p>
+
+<div class="form-container">
+  <form class="contact-form" id="contactForm" novalidate>
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" required aria-describedby="name-error" />
+      <div class="error-message" id="name-error"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required aria-describedby="email-error" />
+      <div class="error-message" id="email-error"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" aria-describedby="phone-error" />
+      <div class="error-message" id="phone-error"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject *</label>
+      <select id="subject" name="subject" required aria-describedby="subject-error">
+        <option value="">Choose a topic...</option>
+        <option value="project">Project Inquiry</option>
+        <option value="idea">Project Idea</option>
+        <option value="collaboration">Collaboration</option>
+        <option value="other">Other</option>
+      </select>
+      <div class="error-message" id="subject-error"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+      <div class="error-message" id="message-error"></div>
+    </div>
+
+    <div class="form-group checkbox-field">
+      <input type="checkbox" id="updates" name="updates" value="yes" />
+      <label for="updates">I’d like to receive occasional updates about new projects</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</div>
+
+
+
+<!--footer-->
+
+  <footer class="site-footer">
+    <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
+    <small>© <span id="year"></span> John Botts</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
