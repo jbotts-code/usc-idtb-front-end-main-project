@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>John Botts — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- HEADER -->
-
+  <header class="site-header">
+    <h1 class="logo">John Botts</h1>
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
@@ -27,7 +30,7 @@
   <main id="main" class="layout">
     <aside class="sidebar">
       <img src="images/USC-PHOTO-PNG.png" id="profile" class="avatar" alt="Portrait of John Botts" />
-      
+
       <h2>About</h2>
       <p>Master’s student at USC IDBT. Undergrad in Sustainability, Sociology, and Environmental Science.</p>
 
@@ -46,26 +49,39 @@
         <li>Sports</li>
         <li>Traveling</li>
         <li>Reading</li>
-      </ol> 
+      </ol>
     </aside>
 
     <section class="content">
       <h2>Hello</h2>
       <p>My name is John. I’ve worked in product development and market research for the last 5–8 years.</p>
-      <p>I’ve led visual design and both <strong>qualitative</strong> and <strong>quantitative</strong> research. Earlier in my career I taught math and sports.</p>
+      <p>I’ve led visual design and both <strong>qualitative</strong> and <strong>quantitative</strong> research.
+        Earlier in my career I taught math and sports.</p>
       <p>I mainly communicate and network on
         <a href="https://linkedin.com/in/john-botts-772b45244" target="_blank" rel="noopener">LinkedIn</a>.
       </p>
 
       <h2>Bio</h2>
-      <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business management, and sociology to achieve a clean system of design making. Circular design has been a major role in my career in the creative industry, while also identifying consumerism more effectively to initiate customer bases more efficiently.</p>
-      <p>My work background focuses on product design within apparel and home decor to achieve product making at a high level. Scientific research is applied to analyze waste management concerns and tackle supply chain challenges through a sustainable framework. Other research I've developed has been for customer market research to strengthen marketing strategies by applying sociological perspectives and methods.</p>
+      <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business
+        management, and sociology to achieve a clean system of design making. Circular design has been a major role in
+        my career in the creative industry, while also identifying consumerism more effectively to initiate customer
+        bases more efficiently.</p>
+      <p>My work background focuses on product design within apparel and home decor to achieve product making at a high
+        level. Scientific research is applied to analyze waste management concerns and tackle supply chain challenges
+        through a sustainable framework. Other research I've developed has been for customer market research to
+        strengthen marketing strategies by applying sociological perspectives and methods.</p>
 
       <h2>Education</h2>
-      <p>I carry bachelor's degrees in sustainability, sociology, and a minor in natural resources from Oregon State University. The purpose of my education is to better understand the relationship between climate science, human behavioral science, and design, because they share a similar foundation. I am also currently pursuing a master's degree at the University of Southern California in Integrated Design, Tech, and Business, covering physical design, business, and computer engineering.</p>
+      <p>I carry bachelor's degrees in sustainability, sociology, and a minor in natural resources from Oregon State
+        University. The purpose of my education is to better understand the relationship between climate science, human
+        behavioral science, and design, because they share a similar foundation. I am also currently pursuing a master's
+        degree at the University of Southern California in Integrated Design, Tech, and Business, covering physical
+        design, business, and computer engineering.</p>
 
       <h2>Work</h2>
-      <p>This degree focuses on construction that teaches skills to create functional products, and highlights marketing and branding tools to prepare me to shape my own entrepreneurial goals and apply machine learning towards web and app development for further design communication.</p>
+      <p>This degree focuses on construction that teaches skills to create functional products, and highlights marketing
+        and branding tools to prepare me to shape my own entrepreneurial goals and apply machine learning towards web
+        and app development for further design communication.</p>
 
       <div class="cta-row">
         <a class="btn" href="./projects.html">View Projects →</a>
@@ -81,10 +97,8 @@
   </footer>
 
   <script>
-    // Set current year
+    // year + mobile nav toggle
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu');
     toggle.addEventListener('click', () => {
@@ -94,4 +108,5 @@
     });
   </script>
 </body>
+
 </html>
