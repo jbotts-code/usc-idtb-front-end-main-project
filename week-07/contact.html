@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Jonathon Botts</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- AKIRA THEME --- */
+    body {
+      background-color: #000;
+      color: #eee;
+      font-family: "Orbitron", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-header {
+      background: linear-gradient(to right, #111, #222);
+      border-bottom: 2px solid #f00;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      color: #f00;
+    }
+
+    .layout {
+      display: flex;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+
+    .content {
+      max-width: 700px;
+      background: #111;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    h2 {
+      color: #f00;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: #f00;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    .form-container {
+      margin-top: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    input,
+    select,
+    textarea {
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 0.5rem;
+      font-family: inherit;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #f00;
+      box-shadow: 0 0 8px #f00;
+    }
+
+    .btn-primary {
+      background: #f00;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .site-footer {
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #222;
+      background: #000;
+    }
+
+    .error-message {
+      color: #f00;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Mobile Nav */
+    .nav-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav ul {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 1rem;
+        border: 1px solid #f00;
+      }
+
+      .nav ul.open {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+        background: none;
+        border: 1px solid #f00;
+        color: #f00;
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <h1 class="logo">Jonathon Botts</h1>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./bio.html">Bio</a></li>
+        <li><a href="./contact.html" aria-current="page">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="layout">
+    <section class="content">
+      <h2>Contact Me</h2>
+      <p>I’d love to connect! You can text or email me using the details below:</p>
+
+      <div class="contact-info">
+        <p><strong>Text:</strong> <a href="tel:8182355187">818-235-5187</a></p>
+        <p><strong>Email:</strong> <a href="mailto:botts.jonathan@gmail.com">botts.jonathan@gmail.com</a></p>
+      </div>
+
+      <h2>Send Me a Message</h2>
+      <p>Or use the form below to get in touch:</p>
+
+      <div class="form-container">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required aria-describedby="name-error" />
+            <div class="error-message" id="name-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required aria-describedby="email-error" />
+            <div class="error-message" id="email-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" aria-describedby="phone-error" />
+            <div class="error-message" id="phone-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required aria-describedby="subject-error">
+              <option value="">Choose a topic...</option>
+              <option value="project">Project Inquiry</option>
+              <option value="idea">Project Idea</option>
+              <option value="collaboration">Collaboration</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="error-message" id="subject-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+            <div class="error-message" id="message-error"></div>
+          </div>
+
+          <div class="form-group checkbox-field">
+            <input type="checkbox" id="updates" name="updates" value="yes" />
+            <label for="updates">I’d like to receive occasional updates about new projects</label>
+          </div>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
+    <small>© <span id="year"></span> Jonathon Botts</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+
+</html>
