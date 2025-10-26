@@ -53,14 +53,6 @@
     </aside>
 
     <section class="content">
-      <h2>Hello</h2>
-      <p>My name is John. I’ve worked in product development and market research for the last 5–8 years.</p>
-      <p>I’ve led visual design and both <strong>qualitative</strong> and <strong>quantitative</strong> research.
-        Earlier in my career I taught math and sports.</p>
-      <p>I mainly communicate and network on
-        <a href="https://linkedin.com/in/john-botts-772b45244" target="_blank" rel="noopener">LinkedIn</a>.
-      </p>
-
       <h2>Bio</h2>
       <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business
         management, and sociology to achieve a clean system of design making. Circular design has been a major role in
@@ -96,15 +88,46 @@
     <small>© <span id="year"></span> John Botts</small>
   </footer>
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Scripts -->
   <script>
-    // year + mobile nav toggle
+    // === Vanilla JavaScript ===
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu');
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
       menu.classList.toggle('open');
+    });
+
+    // === jQuery ===
+    $(document).ready(function () {
+      console.log("jQuery loaded!");
+
+      // Fade in sidebar, content, and CTA row
+      $(".sidebar, .content, .cta-row").hide().fadeIn(1500);
+
+      // Hover effect for sidebar links and list items
+      $(".sidebar ul li, .sidebar a").hover(
+        function () { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
+        function () { $(this).css("color", "").css("font-weight", "normal"); }
+      );
+
+      // Button click animation
+      $(".btn").click(function () {
+        $(this).fadeOut(200).fadeIn(200);
+      });
+
+      // Highlight h2 headings on hover
+      $("h2").hover(
+        function () { $(this).css("color", "#800020"); },
+        function () { $(this).css("color", ""); }
+      );
     });
   </script>
 </body>

@@ -5,6 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — John Botts</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --color-dark: #000;
+      --color-text: #ddd;
+      --color-neon-blue: #00e0ff;
+      --color-neon-pink: #ff0099;
+      --color-accent: #2e2e2e;
+
+      --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
+
+      --color-light-bg: #fdfdfd;
+      --color-light-text: #111;
+      --color-light-accent: #ddd;
+    }
+
+    body.light-mode {
+      --color-dark: #f5f5f5;
+      --color-text: #111;
+      --color-neon-blue: #0077ff;
+      --color-neon-pink: #ff3399;
+      --color-accent: #e0e0e0;
+
+      background-color: var(--color-light-bg);
+      color: var(--color-light-text);
+    }
+
+    body {
+      background-color: var(--color-dark);
+      color: var(--color-text);
+      font-family: var(--font-family-primary);
+      transition: all 0.3s ease;
+    }
+
+    .site-header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--color-accent);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      color: var(--color-neon-pink);
+      text-shadow: 0 0 5px var(--color-neon-pink);
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .nav-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--color-text);
+      cursor: pointer;
+    }
+
+    .menu a {
+      color: var(--color-text);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .menu a:hover,
+    .menu a:focus {
+      color: var(--color-neon-blue);
+      text-shadow: 0 0 8px var(--color-neon-blue);
+    }
+
+    .sidebar, .content, .projects {
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      border: 1px solid var(--color-neon-blue);
+      color: var(--color-neon-blue);
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      margin: 0.3rem 0;
+    }
+
+    .btn:hover {
+      background-color: var(--color-neon-blue);
+      color: var(--color-dark);
+    }
+
+    .light-toggle {
+      background: var(--color-neon-blue);
+      color: var(--color-dark);
+      border: none;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -17,21 +118,66 @@
       <ul id="menu" class="menu">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./projects.html" aria-current="page">Projects</a></li>
-         <li><a href="./bio.html">Bio</a></li>
+        <li><a href="./bio.html">Bio</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li>
-          <a href="https://www.linkedin.com/in/jonathon-botts-772b45244/"
-             target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a>
         </li>
+        <li><button id="lightToggle" class="light-toggle">Toggle Light Mode</button></li>
       </ul>
     </nav>
   </header>
 
   <!-- MAIN -->
   <main id="main" class="layout">
-    <section class="content">
-      <h2>Selected Work</h2>
+    <aside class="sidebar">
+      <img src="images/USC-PHOTO-PNG.png" id="profile" class="avatar" alt="Portrait of John Botts" />
 
+      <h2>About</h2>
+      <p>Master’s student at USC IDBT. Undergrad in Sustainability, Sociology, and Environmental Science.</p>
+
+      <h3>Skills</h3>
+      <ul>
+        <li>Adobe Suite, Microsoft, SPSS, CAD</li>
+        <li>CAD: Dimension, SketchUp</li>
+        <li>Technical apparel design</li>
+        <li>Analysis • Research • Strategy</li>
+        <li>Sustainability reporting</li>
+      </ul>
+
+      <h3>Hobbies</h3>
+      <ol>
+        <li>Gaming</li>
+        <li>Sports</li>
+        <li>Traveling</li>
+        <li>Reading</li>
+      </ol>
+    </aside>
+
+    <section class="content">
+      <h2>Bio</h2>
+      <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business
+        management, and sociology to achieve a clean system of design making. Circular design has been a major role in
+        my career in the creative industry, while also identifying consumerism more effectively to initiate customer
+        bases more efficiently.</p>
+      <p>My work background focuses on product design within apparel and home decor to achieve product making at a high
+        level. Scientific research is applied to analyze waste management concerns and tackle supply chain challenges
+        through a sustainable framework. Other research I've developed has been for customer market research to
+        strengthen marketing strategies by applying sociological perspectives and methods.</p>
+
+      <h2>Education</h2>
+      <p>I carry bachelor's degrees in sustainability, sociology, and a minor in natural resources from Oregon State
+        University. The purpose of my education is to better understand the relationship between climate science, human
+        behavioral science, and design, because they share a similar foundation. I am also currently pursuing a master's
+        degree at the University of Southern California in Integrated Design, Tech, and Business, covering physical
+        design, business, and computer engineering.</p>
+
+      <h2>Work</h2>
+      <p>This degree focuses on construction that teaches skills to create functional products, and highlights marketing
+        and branding tools to prepare me to shape my own entrepreneurial goals and apply machine learning towards web
+        and app development for further design communication.</p>
+
+      <h2>Selected Work</h2>
       <div class="projects">
         <!-- Project 1 -->
         <article class="project-card">
@@ -49,7 +195,6 @@
           <div class="project-body">
             <h3>Product Designs</h3>
             <p>Interactive designs that communicate spatial ideas and clear visuals.</p>
-            <!-- اگر نام فایل‌ات فاصله دارد، با %20 بنویس -->
             <a class="btn btn-secondary" href="images/SACHS%20ROCKET%20DESIGN.jpg">Details</a>
           </div>
         </article>
@@ -59,18 +204,68 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
+    <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
     <small>© <span id="year"></span> John Botts</small>
   </footer>
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Scripts -->
   <script>
-    // year + mobile nav toggle
+    // === Vanilla JavaScript ===
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu');
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
       menu.classList.toggle('open');
+    });
+
+    // === Light Mode Toggle ===
+    const lightToggle = document.getElementById('lightToggle');
+    // Load saved preference
+    if (localStorage.getItem('lightMode') === 'true') {
+      document.body.classList.add('light-mode');
+    }
+
+    lightToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('lightMode', document.body.classList.contains('light-mode'));
+    });
+
+    // === jQuery ===
+    $(document).ready(function() {
+      console.log("jQuery loaded for projects page!");
+
+      // Fade in sidebar, content, and projects
+      $(".sidebar, .content, .projects").hide().fadeIn(1500);
+
+      // Hover effect for project cards
+      $(".project-card").hover(
+        function() { $(this).css("transform", "scale(1.03)").css("box-shadow", "0 5px 15px rgba(0,0,0,0.3)"); },
+        function() { $(this).css("transform", "").css("box-shadow", ""); }
+      );
+
+      // Hover effect for buttons
+      $(".btn").hover(
+        function() { $(this).css("background-color", "#800020").css("color", "#fff"); },
+        function() { $(this).css("background-color", "").css("color", ""); }
+      );
+
+      // Click animation for buttons
+      $(".btn").click(function() {
+        $(this).fadeOut(150).fadeIn(150);
+      });
+
+      // Highlight h2 headers on hover
+      $("h2").hover(
+        function() { $(this).css("color", "#ff4500"); },
+        function() { $(this).css("color", ""); }
+      );
     });
   </script>
 </body>

@@ -4,17 +4,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — John Botts</title>
+  <title>Contact — Jonathon Botts</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
   <header class="site-header">
-    <h1 class="logo">John Botts</h1>
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <!-- HEADER -->
-
+    <h1 class="logo">Jonathon Botts</h1>
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
@@ -24,9 +23,12 @@
         <li><a href="./contact.html" aria-current="page">Contact</a></li>
         <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
+      <!-- Dark Mode Toggle Button -->
+      <button id="dark-mode-toggle" class="btn-secondary">Toggle Dark/Light</button>
     </nav>
   </header>
 
+  <!-- MAIN -->
   <main id="main" class="layout">
     <section class="content">
       <h2>Contact Me</h2>
@@ -92,10 +94,15 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
-    <small>© <span id="year"></span> John Botts</small>
+    <small>© <span id="year"></span> Jonathon Botts</small>
   </footer>
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Scripts -->
   <script>
+    // === Vanilla JavaScript ===
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -107,8 +114,70 @@
       toggle.setAttribute('aria-expanded', String(!open));
       menu.classList.toggle('open');
     });
+
+    // Dark/Light mode toggle
+    const darkModeBtn = document.getElementById('dark-mode-toggle');
+    darkModeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+
+    // === jQuery ===
+    $(document).ready(function () {
+      console.log("jQuery is loaded and ready!");
+
+      // Fade in contact info and form
+      $(".contact-info, .form-container").hide().fadeIn(1500);
+
+      // Hover effect on contact links
+      $(".contact-info a").hover(
+        function () { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
+        function () { $(this).css("color", ""); $(this).css("font-weight", "normal"); }
+      );
+
+      // Simple form validation
+      $("#contactForm").submit(function (event) {
+        event.preventDefault();
+        let valid = true;
+
+        // Clear previous errors
+        $(".error-message").text("");
+
+        // Validate name
+        if ($("#name").val().trim() === "") {
+          $("#name-error").text("Please enter your full name.");
+          valid = false;
+        }
+
+        // Validate email
+        const emailVal = $("#email").val().trim();
+        if (emailVal === "") {
+          $("#email-error").text("Please enter your email.");
+          valid = false;
+        } else if (!/^\S+@\S+\.\S+$/.test(emailVal)) {
+          $("#email-error").text("Please enter a valid email.");
+          valid = false;
+        }
+
+        // Validate subject
+        if ($("#subject").val() === "") {
+          $("#subject-error").text("Please select a subject.");
+          valid = false;
+        }
+
+        // Validate message
+        if ($("#message").val().trim() === "") {
+          $("#message-error").text("Please enter a message.");
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Thank you! Your message has been sent.");
+          // Reset form
+          $(this)[0].reset();
+        }
+      });
+    });
   </script>
 </body>
 
 </html>
-
