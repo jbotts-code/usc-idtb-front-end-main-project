@@ -4,142 +4,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jonathon Botts — Home</title>
+  <title>John Botts — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* --- AKIRA THEME --- */
-    body {
-      background-color: #000;
-      color: #eee;
-      font-family: "Orbitron", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .site-header {
-      background: linear-gradient(to right, #111, #222);
-      border-bottom: 2px solid #f00;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: #ccc;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .nav a:hover,
-    .nav a[aria-current="page"] {
-      color: #f00;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(to bottom, #000, #111);
-      color: #fff;
-      padding: 2rem;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #f00;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 1rem auto;
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    .btn {
-      background: #f00;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: all 0.3s;
-      display: inline-block;
-      margin-top: 1rem;
-    }
-
-    .btn:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .site-footer {
-      text-align: center;
-      color: #999;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
-      border-top: 1px solid #222;
-      background: #000;
-    }
-
-    .nav-toggle {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .nav ul {
-        display: none;
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 1rem;
-        border: 1px solid #f00;
-      }
-
-      .nav ul.open {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: block;
-        background: none;
-        border: 1px solid #f00;
-        color: #f00;
-        padding: 0.5rem;
-        border-radius: 4px;
-        font-size: 1.2rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
   <header class="site-header">
-    <h1 class="logo">Jonathon Botts</h1>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <h1 class="logo">John Botts</h1>
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
@@ -147,29 +21,84 @@
         <li><a href="./projects.html">Projects</a></li>
         <li><a href="./bio.html">Bio</a></li>
         <li><a href="./contact.html">Contact</a></li>
-        <li><a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/john-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="main">
-    <section class="hero">
-      <h1>Jonathon Botts</h1>
-      <p>Designer. Researcher. Builder.  
-        I blend sustainability, sociology, and technology to create forward-thinking design systems rooted in purpose and impact.
+  <!-- MAIN -->
+  <main id="main" class="layout">
+    <aside class="sidebar">
+      <img src="images/USC-PHOTO-PNG.png" id="profile" class="avatar" alt="Portrait of John Botts" />
+
+      <h2>About</h2>
+      <p>Master’s student at USC IDBT. Undergrad in Sustainability, Sociology, and Environmental Science.</p>
+
+      <h3>Skills</h3>
+      <ul>
+        <li>Adobe Suite, Microsoft, SPSS, CAD</li>
+        <li>CAD: Dimension, SketchUp</li>
+        <li>Technical apparel design</li>
+        <li>Analysis • Research • Strategy</li>
+        <li>Sustainability reporting</li>
+      </ul>
+
+      <h3>Hobbies</h3>
+      <ol>
+        <li>Gaming</li>
+        <li>Sports</li>
+        <li>Traveling</li>
+        <li>Reading</li>
+      </ol>
+    </aside>
+
+    <section class="content">
+      <h2>Hello</h2>
+      <p>My name is John. I’ve worked in product development and market research for the last 5–8 years.</p>
+      <p>I’ve led visual design and both <strong>qualitative</strong> and <strong>quantitative</strong> research.
+        Earlier in my career I taught math and sports.</p>
+      <p>I mainly communicate and network on
+        <a href="https://linkedin.com/in/john-botts-772b45244" target="_blank" rel="noopener">LinkedIn</a>.
       </p>
-      <a href="./projects.html" class="btn">Explore My Work →</a>
+
+      <h2>Bio</h2>
+      <p>Jonathon Botts is a thoughtful designer as I utilize my background in design, sustainability, business
+        management, and sociology to achieve a clean system of design making. Circular design has been a major role in
+        my career in the creative industry, while also identifying consumerism more effectively to initiate customer
+        bases more efficiently.</p>
+      <p>My work background focuses on product design within apparel and home decor to achieve product making at a high
+        level. Scientific research is applied to analyze waste management concerns and tackle supply chain challenges
+        through a sustainable framework. Other research I've developed has been for customer market research to
+        strengthen marketing strategies by applying sociological perspectives and methods.</p>
+
+      <h2>Education</h2>
+      <p>I carry bachelor's degrees in sustainability, sociology, and a minor in natural resources from Oregon State
+        University. The purpose of my education is to better understand the relationship between climate science, human
+        behavioral science, and design, because they share a similar foundation. I am also currently pursuing a master's
+        degree at the University of Southern California in Integrated Design, Tech, and Business, covering physical
+        design, business, and computer engineering.</p>
+
+      <h2>Work</h2>
+      <p>This degree focuses on construction that teaches skills to create functional products, and highlights marketing
+        and branding tools to prepare me to shape my own entrepreneurial goals and apply machine learning towards web
+        and app development for further design communication.</p>
+
+      <div class="cta-row">
+        <a class="btn" href="./projects.html">View Projects →</a>
+        <a href="./contact.html" class="btn">Get in Touch →</a>
+      </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
-    <small>© <span id="year"></span> Jonathon Botts</small>
+    <small>© <span id="year"></span> John Botts</small>
   </footer>
 
   <script>
+    // year + mobile nav toggle
     document.getElementById('year').textContent = new Date().getFullYear();
-
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu');
     toggle.addEventListener('click', () => {
