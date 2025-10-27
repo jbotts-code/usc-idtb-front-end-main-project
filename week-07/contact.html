@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Jonathon Botts</title>
+  <title>Jonathon Botts — Bio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -20,8 +20,8 @@
         <li><a href="./index.html">Home</a></li>
         <li><a href="./projects.html">Projects</a></li>
         <li><a href="./bio.html">Bio</a></li>
-        <li><a href="./contact.html" aria-current="page">Contact</a></li>
-        <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="./contact.html" aria-current="page">contact</a></li>
+        <li><a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
       <!-- Dark Mode Toggle Button -->
       <button id="dark-mode-toggle" class="btn-secondary">Toggle Dark/Light</button>
@@ -122,20 +122,23 @@
     });
 
     // === jQuery ===
-    $(document).ready(function () {
+    $(document).ready(function() {
       console.log("jQuery is loaded and ready!");
 
-      // Fade in contact info and form
-      $(".contact-info, .form-container").hide().fadeIn(1500);
+      // Change all h2 text color
+      $("h2").css("color", "#800020"); // burgundy
 
-      // Hover effect on contact links
-      $(".contact-info a").hover(
-        function () { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
-        function () { $(this).css("color", ""); $(this).css("font-weight", "normal"); }
+      // Fade in sections on page load
+      $(".content p, .cta-row, .sidebar").hide().fadeIn(1500);
+
+      // Hover effect for sidebar skills
+      $(".sidebar ul li").hover(
+        function() { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
+        function() { $(this).css("color", "").css("font-weight", "normal"); }
       );
 
-      // Simple form validation
-      $("#contactForm").submit(function (event) {
+      // Button click animation
+      $(".btn").click(function(event) {
         event.preventDefault();
         let valid = true;
 

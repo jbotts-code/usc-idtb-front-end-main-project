@@ -1,93 +1,224 @@
-/* Blade Runner 2049 Aesthetic */
-/* ... existing dark mode CSS above ... */
+/* ================================
+   BLADE RUNNER 2049 AESTHETIC THEME
+   Dark Mode (default) + Light Mode toggle
+   ================================ */
 
-/* --- Light Mode Variables --- */
+/* --- Root Variables --- */
+
 :root {
-    --color-dark: #000;
-    --color-text: #ddd;
-    --color-neon-blue: #00e0ff;
-    --color-neon-pink: #ff0099;
-    --color-accent: #2e2e2e;
-    --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
+  --color-dark: #000;
+  --color-text: #ddd;
+  --color-accent: #2e2e2e;
+  --color-burgundy: #800020;
+  --color-neon-blue: #00e0ff;
+  --color-neon-pink: #ff0099;
+  --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
 
-    /* Light mode overrides */
-    --color-light-bg: #fdfdfd;
-    --color-light-text: #111;
-    --color-light-accent: #ddd;
+  /* Light mode overrides */
+  --color-light-bg: #fdfdfd;
+  --color-light-text: #111;
+  --color-light-accent: #ddd;
 }
 
-/* Light Mode Overrides */
+
+/* --- Base Layout --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family-primary);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* --- Header --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.8);
+  border-bottom: 2px solid var(--color-burgundy);
+  padding: 1rem 2rem;
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--color-neon-pink);
+  text-shadow: 0 0 8px var(--color-neon-pink);
+}
+
+/* --- Navigation --- */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  color: var(--color-text);
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+  color: var(--color-neon-blue);
+  text-shadow: 0 0 8px var(--color-neon-blue);
+}
+
+/* --- Layout --- */
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content {
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid var(--color-accent);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  border-bottom: 2px solid var(--color-burgundy);
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+/* --- Project Cards --- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: rgba(50, 50, 50, 0.8);
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 20px rgba(255, 0, 153, 0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-body {
+  padding: 1rem;
+}
+
+.project-body h3 {
+  color: var(--color-neon-pink);
+  margin-bottom: 0.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--color-burgundy);
+  background: transparent;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-burgundy);
+  color: #fff;
+}
+
+/* --- Footer --- */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--color-accent);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* --- Light Mode Overrides --- */
 body.light-mode {
-    background-color: var(--color-light-bg);
-    color: var(--color-light-text);
-}
-
-body.light-mode .sidebar {
-    background-color: var(--color-light-accent);
-    border-color: var(--color-light-text);
-}
-
-body.light-mode .content {
-    background-color: #fff;
-    border-color: var(--color-light-accent);
-}
-
-body.light-mode .menu a {
-    color: var(--color-light-text);
-}
-
-body.light-mode .menu a:hover,
-body.light-mode .menu a:focus {
-    color: #0077cc; /* light blue for hover */
-}
-
-body.light-mode .btn {
-    border-color: #0077cc;
-    color: #0077cc;
-}
-
-body.light-mode .btn:hover {
-    background-color: #0077cc;
-    color: #fff;
+  background-color: var(--color-light-bg);
+  color: var(--color-light-text);
 }
 
 body.light-mode .site-header {
-    background: rgba(255, 255, 255, 0.5);
-    border-bottom: 2px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid var(--color-light-accent);
 }
 
 body.light-mode .logo {
-    color: var(--color-neon-pink);
-    text-shadow: 0 0 5px var(--color-neon-pink);
+  color: var(--color-neon-pink);
+  text-shadow: 0 0 5px var(--color-neon-pink);
+}
+
+body.light-mode .menu a {
+  color: var(--color-light-text);
+}
+
+body.light-mode .menu a:hover {
+  color: var(--color-neon-blue);
 }
 
 body.light-mode .content {
-    background-color: rgba(245, 245, 245, 0.8);
-    border: 1px solid var(--color-accent);
-}
-
-body.light-mode input[type="text"],
-body.light-mode input[type="email"],
-body.light-mode input[type="tel"],
-body.light-mode textarea {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: var(--color-text);
-    border: 1px solid var(--color-accent);
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background-color: rgba(245, 245, 245, 0.9);
+  border: 1px solid var(--color-light-accent);
 }
 
 body.light-mode .project-card {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-light-accent);
 }
 
 body.light-mode .btn {
-    border: 1px solid var(--color-neon-blue);
-    color: var(--color-neon-blue);
+  border: 1px solid var(--color-neon-blue);
+  color: var(--color-neon-blue);
 }
 
-body.light-mode .btn:hover,
-body.light-mode .btn:focus {
-    background-color: var(--color-neon-blue);
-    color: var(--color-dark);
+body.light-mode .btn:hover {
+  background-color: var(--color-neon-blue);
+  color: var(--color-dark);
 }
