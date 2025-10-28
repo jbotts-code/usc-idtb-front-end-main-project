@@ -1,224 +1,359 @@
-/* ================================
-   BLADE RUNNER 2049 AESTHETIC THEME
-   Dark Mode (default) + Light Mode toggle
-   ================================ */
+/* =============================== */
+/* Blade Runner 2049 Aesthetic + Desktop Nav & Theme Toggle */
+/* =============================== */
 
-/* --- Root Variables --- */
-
+/* Custom Properties */
 :root {
-  --color-dark: #000;
-  --color-text: #ddd;
-  --color-accent: #2e2e2e;
-  --color-burgundy: #800020;
-  --color-neon-blue: #00e0ff;
-  --color-neon-pink: #ff0099;
-  --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
-
-  /* Light mode overrides */
-  --color-light-bg: #fdfdfd;
-  --color-light-text: #111;
-  --color-light-accent: #ddd;
+    --color-dark: #000;
+    --color-text: #ddd;
+    --color-neon-blue: #00e0ff;
+    --color-neon-pink: #ff0099;
+    --color-accent: #2e2e2e;
+    --font-family-primary: 'Helvetica Neue', Arial, sans-serif;
 }
 
-
-/* --- Base Layout --- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* =============================== */
+/* Global Styles */
+/* =============================== */
+body {
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html, body {
-  height: 100%;
-  font-family: var(--font-family-primary);
-  background-color: var(--color-dark);
-  color: var(--color-text);
-  line-height: 1.6;
-  transition: background-color 0.4s ease, color 0.4s ease;
+/* Light Mode Overrides */
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #121212;
 }
 
-/* --- Header --- */
+body.light-mode a {
+    color: #1a1a1a;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -99;
+}
+
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
+    padding: 8px;
+    z-index: 99;
+    left: 0;
+}
+
+/* =============================== */
+/* Header and Navigation */
+/* =============================== */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(20, 20, 20, 0.8);
-  border-bottom: 2px solid var(--color-burgundy);
-  padding: 1rem 2rem;
-  backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--color-accent);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
-  font-size: 1.5rem;
-  color: var(--color-neon-pink);
-  text-shadow: 0 0 8px var(--color-neon-pink);
+    font-size: 1.5rem;
+    color: var(--color-neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--color-neon-pink);
 }
 
-/* --- Navigation --- */
 .nav-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  color: var(--color-text);
-  border: none;
-  cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--color-neon-blue);
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
 }
 
+/* Main Menu */
 .menu {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    overflow: hidden;
+    max-height: 1000px; /* default expanded */
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.menu.closed {
+    max-height: 0;
+    opacity: 0;
+}
+
+.menu li {
+    position: relative;
 }
 
 .menu a {
-  text-decoration: none;
-  color: var(--color-text);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+    color: var(--color-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
 .menu a:hover,
 .menu a:focus {
-  color: var(--color-neon-blue);
-  text-shadow: 0 0 8px var(--color-neon-blue);
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 8px var(--color-neon-blue);
 }
 
-/* --- Layout --- */
+.menu a[aria-current="page"] {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 8px var(--color-neon-pink);
+}
+
+/* Dropdown */
+.menu .dropdown {
+    display: none;
+    position: absolute;
+    background: var(--color-accent);
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+.menu li:hover .dropdown,
+.menu li:focus-within .dropdown {
+    display: block;
+}
+
+.menu .dropdown li a {
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.menu .dropdown li a:hover,
+.menu .dropdown li a:focus {
+    background: var(--color-neon-blue);
+    color: var(--color-dark);
+}
+
+/* =============================== */
+/* Layout */
+/* =============================== */
 .layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    background-color: var(--color-accent);
+    padding: 2rem;
+    border: 1px solid var(--color-dark);
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar Headings */
+.sidebar h2,
+.sidebar h3 {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-neon-blue);
+    border-bottom: 1px solid var(--color-neon-blue);
+    padding-bottom: 1.0em;
+    margin-bottom: 1.5em;
+}
+
+.sidebar ul,
+.sidebar ol {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+.avatar {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid var(--color-neon-pink);
+    box-shadow: 0 0 10px var(--color-neon-pink);
+    display: block;
+    margin: 0 auto 1rem;
 }
 
 .content {
-  background: rgba(30, 30, 30, 0.8);
-  border: 1px solid var(--color-accent);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Typography --- */
-h1, h2, h3 {
-  color: var(--color-text);
-  margin-bottom: 1rem;
+.content h2 {
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 5px var(--color-neon-blue);
+    border-bottom: 1px solid var(--color-neon-blue);
+    padding-bottom: 1.0em;
+    margin-bottom: 1.5em;
 }
 
-h2 {
-  border-bottom: 2px solid var(--color-burgundy);
-  padding-bottom: 0.25rem;
-  margin-bottom: 1.5rem;
+/* =============================== */
+/* Forms and Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    background-color: rgba(20, 20, 20, 0.9);
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-family: var(--font-family-primary);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 224, 255, 0.2), 0 0 5px rgba(255, 0, 153, 0.2);
 }
 
-p {
-  margin-bottom: 1rem;
-  color: var(--color-text);
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    border-color: var(--color-neon-pink);
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    box-shadow: 
+        0 0 10px var(--color-neon-blue),
+        0 0 20px var(--color-neon-pink),
+        0 0 40px var(--color-neon-blue),
+        0 0 60px var(--color-neon-pink);
 }
 
-/* --- Project Cards --- */
+/* =============================== */
+/* Project Cards */
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .project-card {
-  background: rgba(50, 50, 50, 0.8);
-  border: 1px solid var(--color-accent);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 5px 20px rgba(255, 0, 153, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
 }
 
 .project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--color-accent);
 }
 
 .project-body {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .project-body h3 {
-  color: var(--color-neon-pink);
-  margin-bottom: 0.5rem;
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 5px var(--color-neon-pink);
 }
 
-/* --- Buttons --- */
+/* =============================== */
+/* Buttons and Links */
 .btn {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid var(--color-burgundy);
-  background: transparent;
-  color: var(--color-text);
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--color-neon-blue);
+    color: var(--color-neon-blue);
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--color-burgundy);
-  color: #fff;
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
 }
 
-/* --- Footer --- */
+.btn-secondary {
+    border: 1px solid var(--color-neon-pink);
+    color: var(--color-neon-pink);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--color-neon-pink);
+    color: var(--color-dark);
+}
+
+a {
+    color: var(--color-neon-pink);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-neon-blue);
+    text-decoration: underline;
+}
+
+/* =============================== */
+/* Footer */
 .site-footer {
-  text-align: center;
-  padding: 2rem;
-  border-top: 1px solid var(--color-accent);
-  font-size: 0.9rem;
-  opacity: 0.8;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 2px solid var(--color-accent);
 }
 
-/* --- Light Mode Overrides --- */
-body.light-mode {
-  background-color: var(--color-light-bg);
-  color: var(--color-light-text);
-}
-
-body.light-mode .site-header {
-  background: rgba(255, 255, 255, 0.5);
-  border-bottom: 2px solid var(--color-light-accent);
-}
-
-body.light-mode .logo {
-  color: var(--color-neon-pink);
-  text-shadow: 0 0 5px var(--color-neon-pink);
-}
-
-body.light-mode .menu a {
-  color: var(--color-light-text);
-}
-
-body.light-mode .menu a:hover {
-  color: var(--color-neon-blue);
-}
-
-body.light-mode .content {
-  background-color: rgba(245, 245, 245, 0.9);
-  border: 1px solid var(--color-light-accent);
-}
-
-body.light-mode .project-card {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--color-light-accent);
-}
-
-body.light-mode .btn {
-  border: 1px solid var(--color-neon-blue);
-  color: var(--color-neon-blue);
-}
-
-body.light-mode .btn:hover {
-  background-color: var(--color-neon-blue);
-  color: var(--color-dark);
+/* =============================== */
+/* Desktop Nav Toggle Animation */
+.menu {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
 }

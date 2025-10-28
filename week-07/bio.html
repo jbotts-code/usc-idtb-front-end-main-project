@@ -14,18 +14,38 @@
   <!-- HEADER -->
   <header class="site-header">
     <h1 class="logo">Jonathon Botts</h1>
+
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
         <li><a href="./index.html">Home</a></li>
-        <li><a href="./projects.html">Projects</a></li>
+
+        <!-- Projects menu with dropdown -->
+        <li>
+          <a href="./projects.html">Projects</a>
+          <ul class="dropdown">
+            <li><a href="./projects.html#web">Web Projects</a></li>
+            <li><a href="./projects.html#design">Design Projects</a></li>
+            <li><a href="./projects.html#other">Other Projects</a></li>
+          </ul>
+        </li>
+
         <li><a href="./bio.html" aria-current="page">Bio</a></li>
         <li><a href="./contact.html">Contact</a></li>
-        <li><a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">LinkedIn</a></li>
+
+        <!-- LinkedIn menu with dropdown -->
+        <li>
+          <a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">LinkedIn</a>
+          <ul class="dropdown">
+            <li><a href="https://www.linkedin.com/in/jonathonbotts" target="_blank" rel="noopener">Profile</a></li>
+            <li><a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Feed</a></li>
+          </ul>
+        </li>
       </ul>
-      <!-- Dark Mode Toggle Button -->
-      <button id="dark-mode-toggle" class="btn-secondary">Toggle Dark/Light</button>
     </nav>
+    
+    <!-- 🌙 Theme Toggle Button -->
+    <button id="theme-toggle" class="btn-secondary">Toggle Theme</button>
   </header>
 
   <!-- MAIN -->
@@ -83,53 +103,15 @@
     <small>© <span id="year"></span> Jonathon Botts</small>
   </footer>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
   <!-- Scripts -->
   <script>
-    // === Vanilla JavaScript ===
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('menu');
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      menu.classList.toggle('open');
-    });
-
-    // Dark/Light mode toggle
-    const darkModeBtn = document.getElementById('dark-mode-toggle');
-    darkModeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-    });
-
-    // === jQuery ===
-    $(document).ready(function() {
-      console.log("jQuery is loaded and ready!");
-
-      // Change all h2 text color
-      $("h2").css("color", "#800020"); // burgundy
-
-      // Fade in sections on page load
-      $(".content p, .cta-row, .sidebar").hide().fadeIn(1500);
-
-      // Hover effect for sidebar skills
-      $(".sidebar ul li").hover(
-        function() { $(this).css("color", "#ff4500").css("font-weight", "bold"); },
-        function() { $(this).css("color", "").css("font-weight", "normal"); }
-      );
-
-      // Button click animation
-      $(".btn").click(function(event) {
-        event.preventDefault();
-        $(this).fadeOut(200).fadeIn(200);
-      });
-    });
   </script>
+
+  <!-- jQuery + Custom Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
