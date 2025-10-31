@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — John Botts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <h1 class="logo">John Botts</h1>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./projects.html" aria-current="page">Projects</a></li>
+         <li><a href="./bio.html">Bio</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/jonathon-botts-772b45244/"
+             target="_blank" rel="noopener">LinkedIn</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main" class="layout">
+    <section class="content">
+      <h2>Selected Work</h2>
+
+      <div class="projects">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <img src="images/clothes.jpg" alt="Technical apparel flats and clothing designs" />
+          <div class="project-body">
+            <h3>Clothing Designs</h3>
+            <p>CAD patterns, sustainability reporting, and specifications for a performance capsule.</p>
+            <a class="btn btn-secondary" href="images/IMG_1220.png">Details</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <img src="images/3D.png" alt="3D concept render of product design" />
+          <div class="project-body">
+            <h3>Product Designs</h3>
+            <p>Interactive designs that communicate spatial ideas and clear visuals.</p>
+            <!-- اگر نام فایل‌ات فاصله دارد، با %20 بنویس -->
+            <a class="btn btn-secondary" href="images/SACHS%20ROCKET%20DESIGN.jpg">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <small>© <span id="year"></span> John Botts</small>
+  </footer>
+
+  <script>
+    // year + mobile nav toggle
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
