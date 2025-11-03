@@ -171,8 +171,8 @@ body {
     color: var(--color-neon-blue);
     text-shadow: 0 0 5px var(--color-neon-blue);
     border-bottom: 1px solid var(--color-neon-blue);
-    padding-bottom: 1.0em;  /* space between text and border */
-    margin-bottom: 1.5em;   /* space below the border */
+    padding-bottom: 1.0em;
+    margin-bottom: 1.5em;
 }
 
 .sidebar ul,
@@ -185,16 +185,18 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* Avatar Images */
 .avatar {
     max-width: 100%;
     height: auto;
-    border-radius: 50%;
+    border-radius: 50%; /* default circle for all pages */
     border: 2px solid var(--color-neon-pink);
     box-shadow: 0 0 10px var(--color-neon-pink);
     display: block;
     margin: 0 auto 1rem;
 }
 
+/* Content */
 .content {
     flex-grow: 1;
     background-color: rgba(0, 0, 0, 0.3);
@@ -203,16 +205,15 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Updated H2 Heading */
 .content h2 {
     color: var(--color-neon-blue);
     text-shadow: 0 0 5px var(--color-neon-blue);
     border-bottom: 1px solid var(--color-neon-blue);
-    padding-bottom: 1.0em;   /* space between text and border */
-    margin-bottom: 1.5em;    /* space below the border */
+    padding-bottom: 1.0em;
+    margin-bottom: 1.5em;
 }
 
-/* 🔥 Neon Textbox Glow */
+/* Neon Input Fields */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -229,9 +230,7 @@ textarea {
     box-shadow: 0 0 5px rgba(0, 224, 255, 0.2), 0 0 5px rgba(255, 0, 153, 0.2);
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
+input:focus,
 textarea:focus {
     border-color: var(--color-neon-pink);
     outline: none;
@@ -280,7 +279,7 @@ textarea:focus {
     text-shadow: 0 0 5px var(--color-neon-pink);
 }
 
-/* Buttons and Links */
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -362,8 +361,134 @@ a:focus {
     }
 }
 
-/* Placeholder for images */
-img[alt="Project 1 placeholder"],
-img[alt="Project 2 placeholder"] {
-    background-color: #333;
+/* --- Home Page Rounded Square Avatar (30% bigger) --- */
+body.index-page .avatar {
+    border-radius: 20px; /* rounded square */
+    width: 100%;
+    max-width: 286px; /* 220px + 30% */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+@media (max-width: 768px) {
+    body.index-page .avatar {
+        width: 60%;
+        max-width: 234px; /* 180px + 30% */
+        margin: 0 auto 1rem;
+    }
+}
+
+/* --- Contact Form Spacing Fix --- */
+.form-container {
+    padding: 2rem; /* space inside the form container */
+    border: 1px solid var(--color-accent);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem; /* consistent spacing between fields */
+}
+
+.contact-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--color-neon-blue);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    padding: 12px 14px;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    margin-bottom: 0.5rem; /* space between input and error message */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(20, 20, 20, 0.9);
+    color: var(--color-text);
+    font-family: var(--font-family-primary);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 224, 255, 0.2), 0 0 5px rgba(255, 0, 153, 0.2);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-neon-pink);
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    box-shadow: 
+        0 0 10px var(--color-neon-blue),
+        0 0 20px var(--color-neon-pink),
+        0 0 40px var(--color-neon-blue),
+        0 0 60px var(--color-neon-pink);
+}
+
+.contact-form .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form button[type="submit"] {
+    margin-top: 1rem;
+}
+
+/* --- Contact Page Submit Button Uniform Style --- */
+.contact-form button[type="submit"] {
+    background-color: var(--color-dark); /* dark background */
+    color: var(--color-neon-blue);       /* blue text */
+    border: 2px solid var(--color-neon-blue); /* blue outline */
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-family-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover,
+.contact-form button[type="submit"]:focus {
+    background-color: var(--color-neon-blue); /* blue highlight */
+    color: var(--color-dark);                 /* text turns black */
+    box-shadow: 0 0 10px var(--color-neon-blue),
+                0 0 20px var(--color-neon-blue);
+    outline: none;
+}
+
+.error-message {
+    height: 1.2em; /* reserve space so error messages don’t shift layout */
+    font-size: 0.9rem;
+    color: var(--color-neon-pink);
+}
+
+/* --- Home Page Equal Height Boxes --- */
+.home-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .home-intro {
+        flex-direction: row;
+        align-items: stretch; /* ensures equal height */
+    }
+
+    .home-intro .left-box,
+    .home-intro .right-box {
+        flex: 1; /* both boxes take equal height */
+    }
 }

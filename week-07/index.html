@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jonathon Botts — Portfolio</title>
+  <title>John Botts — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,7 +13,7 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <h1 class="logo">Jonathon Botts</h1>
+    <h1 class="logo">John Botts</h1>
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
@@ -24,9 +24,6 @@
         <li><a href="https://www.linkedin.com/in/john-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </nav>
-
-    <!-- 🌙 Theme Toggle Button -->
-    <button id="theme-toggle" class="btn-secondary">Toggle Theme</button>
   </header>
 
   <!-- MAIN -->
@@ -96,42 +93,20 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
-    <small>© <span id="year"></span> Jonathon Botts</small>
+    <small>© <span id="year"></span> John Botts</small>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Set current year
+    // year + mobile nav toggle
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Desktop nav toggle
-    const navToggle = document.querySelector('.nav-toggle');
+    const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu');
-
-    // Add smooth animation to the menu
-    menu.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
-    menu.style.overflow = 'hidden';
-    menu.style.maxHeight = '0';
-    menu.style.opacity = '0';
-
-    navToggle.addEventListener('click', () => {
-      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!isOpen));
-
-      if (!isOpen) {
-        menu.classList.add('open');
-        menu.style.maxHeight = menu.scrollHeight + 'px';
-        menu.style.opacity = '1';
-      } else {
-        menu.style.maxHeight = '0';
-        menu.style.opacity = '0';
-        menu.classList.remove('open');
-      }
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
     });
   </script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
 </body>
 
 </html>

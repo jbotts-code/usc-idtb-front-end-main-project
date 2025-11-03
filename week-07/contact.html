@@ -4,51 +4,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Jonathon Botts</title>
+  <title>Contact — John Botts</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- HEADER -->
   <header class="site-header">
-    <h1 class="logo">Jonathon Botts</h1>
+    <h1 class="logo">John Botts</h1>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
 
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
         <li><a href="./index.html">Home</a></li>
-
-        <!-- Projects menu with dropdown -->
-        <li>
-          <a href="./projects.html">Projects</a>
-          <ul class="dropdown">
-            <li><a href="./projects.html#web">Web Projects</a></li>
-            <li><a href="./projects.html#design">Design Projects</a></li>
-            <li><a href="./projects.html#other">Other Projects</a></li>
-          </ul>
-        </li>
-
+        <li><a href="./projects.html">Projects</a></li>
         <li><a href="./bio.html">Bio</a></li>
         <li><a href="./contact.html" aria-current="page">Contact</a></li>
-
-        <!-- LinkedIn menu with dropdown -->
-        <li>
-          <a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a>
-          <ul class="dropdown">
-            <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">Profile</a></li>
-            <li><a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Feed</a></li>
-          </ul>
-        </li>
+        <li><a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </nav>
-
-    <!-- 🌙 Theme Toggle Button -->
-    <button id="theme-toggle" class="btn-secondary">Toggle Theme</button>
   </header>
 
-  <!-- MAIN -->
   <main id="main" class="layout">
     <section class="content">
       <h2>Contact Me</h2>
@@ -114,18 +92,22 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <p>Developed for IDSN 531 — Front-End Web Programming, Fall 2025.</p>
-    <small>© <span id="year"></span> Jonathon Botts</small>
+    <small>© <span id="year"></span> John Botts</small>
   </footer>
 
-  <!-- Scripts -->
   <script>
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 
-  <!-- jQuery + Custom Script -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 
 </html>

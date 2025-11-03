@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects — Jonathon Botts</title>
+  <title>Projects — John Botts</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,22 +11,20 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <h1 class="logo">Jonathon Botts</h1>
+    <h1 class="logo">John Botts</h1>
     <nav class="nav" aria-label="Primary">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
       <ul id="menu" class="menu">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./projects.html" aria-current="page">Projects</a></li>
-        <li><a href="./bio.html">Bio</a></li>
+         <li><a href="./bio.html">Bio</a></li>
         <li><a href="./contact.html">Contact</a></li>
         <li>
-          <a href="https://www.linkedin.com/in/jonathon-botts-772b45244/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/jonathon-botts-772b45244/"
+             target="_blank" rel="noopener">LinkedIn</a>
         </li>
       </ul>
     </nav>
-
-    <!-- 🌙 Theme Toggle Button -->
-    <button id="theme-toggle" class="btn-secondary">Toggle Theme</button>
   </header>
 
   <!-- MAIN -->
@@ -51,6 +49,7 @@
           <div class="project-body">
             <h3>Product Designs</h3>
             <p>Interactive designs that communicate spatial ideas and clear visuals.</p>
+            <!-- اگر نام فایل‌ات فاصله دارد، با %20 بنویس -->
             <a class="btn btn-secondary" href="images/SACHS%20ROCKET%20DESIGN.jpg">Details</a>
           </div>
         </article>
@@ -60,41 +59,19 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <small>© <span id="year"></span> Jonathon Botts</small>
+    <small>© <span id="year"></span> John Botts</small>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Set current year
+    // year + mobile nav toggle
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Desktop nav toggle
-    const navToggle = document.querySelector('.nav-toggle');
+    const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('menu');
-
-    // Add smooth animation to the menu
-    menu.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
-    menu.style.overflow = 'hidden';
-    menu.style.maxHeight = '0';
-    menu.style.opacity = '0';
-
-    navToggle.addEventListener('click', () => {
-      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!isOpen));
-
-      if (!isOpen) {
-        menu.classList.add('open');
-        menu.style.maxHeight = menu.scrollHeight + 'px';
-        menu.style.opacity = '1';
-      } else {
-        menu.style.maxHeight = '0';
-        menu.style.opacity = '0';
-        menu.classList.remove('open');
-      }
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
     });
   </script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>

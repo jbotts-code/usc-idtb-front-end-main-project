@@ -6,9 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jonathon Botts — Bio</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Responsive Layout for bio.html only --- */
+    .layout {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .sidebar {
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .content {
+      flex: 2;
+    }
+
+    /* --- Fluid Image --- */
+    .avatar {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+
+    /* --- Media Query: Stack sections on smaller screens --- */
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .sidebar {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .avatar {
+        max-width: 250px;
+      }
+
+      .content {
+        padding: 0 0.5rem;
+      }
+
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="bio-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- HEADER -->
