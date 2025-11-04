@@ -150,13 +150,6 @@ body {
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    .layout {
-        flex-direction: row;
-        gap: 2rem;
-    }
-}
-
 .sidebar {
     background-color: var(--color-accent);
     padding: 2rem;
@@ -372,14 +365,6 @@ body.index-page .avatar {
     margin: 0 auto 1rem;
 }
 
-@media (max-width: 768px) {
-    body.index-page .avatar {
-        width: 60%;
-        max-width: 234px; /* 180px + 30% */
-        margin: 0 auto 1rem;
-    }
-}
-
 /* --- Contact Form Spacing Fix --- */
 .form-container {
     padding: 2rem; /* space inside the form container */
@@ -444,13 +429,9 @@ body.index-page .avatar {
 
 .contact-form button[type="submit"] {
     margin-top: 1rem;
-}
-
-/* --- Contact Page Submit Button Uniform Style --- */
-.contact-form button[type="submit"] {
-    background-color: var(--color-dark); /* dark background */
-    color: var(--color-neon-blue);       /* blue text */
-    border: 2px solid var(--color-neon-blue); /* blue outline */
+    background-color: var(--color-dark);
+    color: var(--color-neon-blue);
+    border: 2px solid var(--color-neon-blue);
     padding: 0.75rem 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -461,15 +442,15 @@ body.index-page .avatar {
 
 .contact-form button[type="submit"]:hover,
 .contact-form button[type="submit"]:focus {
-    background-color: var(--color-neon-blue); /* blue highlight */
-    color: var(--color-dark);                 /* text turns black */
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark);
     box-shadow: 0 0 10px var(--color-neon-blue),
                 0 0 20px var(--color-neon-blue);
     outline: none;
 }
 
 .error-message {
-    height: 1.2em; /* reserve space so error messages don’t shift layout */
+    height: 1.2em;
     font-size: 0.9rem;
     color: var(--color-neon-pink);
 }
@@ -481,14 +462,109 @@ body.index-page .avatar {
     gap: 2rem;
 }
 
+/* --- Breakpoints for Responsive Design --- */
+
+/* Tablet / Small Desktops */
 @media (min-width: 768px) {
+    .layout {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
     .home-intro {
         flex-direction: row;
-        align-items: stretch; /* ensures equal height */
+        align-items: stretch;
     }
 
     .home-intro .left-box,
     .home-intro .right-box {
-        flex: 1; /* both boxes take equal height */
+        flex: 1;
+    }
+
+    body.index-page .avatar {
+        max-width: 286px;
+    }
+
+    .sidebar {
+        padding: 2.5rem;
+    }
+
+    .content {
+        padding: 2.5rem;
+    }
+
+    .project-card img {
+        height: 220px;
+    }
+
+    .btn,
+    .btn-secondary {
+        padding: 0.85rem 1.7rem;
+        font-size: 1rem;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto 2rem;
     }
 }
+
+/* Large Desktop / Wide Screens */
+@media (min-width: 1200px) {
+    .layout {
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 3rem;
+    }
+
+    .project-card img {
+        height: 250px;
+    }
+
+    .btn,
+    .btn-secondary {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    .sidebar {
+        padding: 3rem;
+    }
+
+    .content {
+        padding: 3rem;
+    }
+
+    body.index-page .avatar {
+        max-width: 320px;
+    }
+}
+
+/* Extra small / mobile overrides */
+@media (max-width: 767px) {
+    .layout {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .home-intro {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    body.index-page .avatar {
+        width: 60%;
+        max-width: 234px;
+    }
+
+    .project-card img {
+        height: 180px;
+    }
+
+    .btn,
+    .btn-secondary {
+        padding: 0.7rem 1.3rem;
+        font-size: 0.9rem;
+    }
+}
+
